@@ -62,15 +62,19 @@
       </el-col>
       <el-col :span="12" v-if="showDownload">
         <div class="grid-content bg-purple">请点击导出</div>
-        <el-button size="small" type="info">导出结果</el-button>
+        <el-button size="small" type="info" @click="exportExcel">导出结果</el-button>
       </el-col>
     </el-row>
   </div>
 </template>
 
 <script>
+import exportExcelHandler from 'api/request/exportExcelHandler.js'
 export default {
   name: 'pppoeExcel',
+  mixins: [
+    exportExcelHandler
+  ],
   data() {
     return {
       upLoadStatus: {
@@ -116,6 +120,12 @@ export default {
             break;
         }
       }
+    },
+    exportExcel() {
+      const _data = {};
+      exportExcelHandler.requestExportPppoeExcel(_data).then((res) => {
+        console.log(res);
+      });
     }
   }
 }

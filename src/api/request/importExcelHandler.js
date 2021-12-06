@@ -10,15 +10,12 @@ const importExcelHandler = {
         return axios({
             method: _method,
             url: _url,
-            // URL参数
-            // 必须是一个纯对象或者 URL参数对象
             data: _data,
-            // 默认值是json
             responseType: 'json',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         });
-    },
+    }
 };
 export default importExcelHandler;

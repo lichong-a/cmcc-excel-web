@@ -10,6 +10,8 @@ const serverUrl = {
         return {
             // PPPOE导入【POST】
             importPppoeExcel: `${dirServicePath}/api/read/pppoe/${id}`,
+            // PPPOE导出【POST】
+            exportPppoeExcel: `${dirServicePath}/api/export/pppoe`,
         }[category];
     }
 };
