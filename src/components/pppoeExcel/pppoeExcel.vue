@@ -8,6 +8,7 @@
                    action="/api/read/pppoe/1"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove1"
+                   accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
                      type="primary">{{upLoadStatus.one ? '已上传' : '点击上传'}}</el-button>
@@ -20,6 +21,7 @@
                    action="/api/read/pppoe/2"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove2"
+                   accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
                      type="primary">{{upLoadStatus.two ? '已上传' : '点击上传'}}</el-button>
@@ -34,6 +36,7 @@
                    action="/api/read/pppoe/3"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove3"
+                   accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
                      type="primary">{{upLoadStatus.three ? '已上传' : '点击上传'}}</el-button>
@@ -46,6 +49,7 @@
                    action="/api/read/pppoe/4"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove4"
+                   accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
                      type="primary">{{upLoadStatus.four ? '已上传' : '点击上传'}}</el-button>
@@ -60,6 +64,7 @@
                    action="/api/read/pppoe/5"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove5"
+                   accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
                      type="primary">{{upLoadStatus.five ? '已上传' : '点击上传'}}</el-button>
@@ -144,15 +149,15 @@ export default {
             res.headers['content-disposition'].split('=')[1]
           )
           const fName = fileName !== 'undefined' ? fileName : '结果.xlsx' //名称（带文件后缀类型）'aaa.txt';
-          const blob = new Blob([res], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' })
-          if (navigator.msSaveBlob) {
-            navigator.msSaveBlob(blob, fName)
+          const blob = new Blob([res.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8' })
+          if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            window.navigator.msSaveOrOpenBlob(blob, fName)
           } else {
             const link = document.createElement('a')
-            link.href = URL.createObjectURL(blob)
+            link.href = window.URL.createObjectURL(blob)
             link.download = fName
             link.click()
-            URL.revokeObjectURL(link.href)
+            window.URL.revokeObjectURL(link.href)
           }
         } else {
           this.$message.error('服务器错误！')
