@@ -12,6 +12,8 @@ const serverUrl = {
             importPppoeExcel: `${dirServicePath}/api/read/pppoe/${id}`,
             // PPPOE导出【POST】
             exportPppoeExcel: `${dirServicePath}/api/export/pppoe`,
+            // 发光器端口重复导出【POST】
+            fgqPortRepeatExcel: `${dirServicePath}/api/export/fgqPortRepeat`,
         }[category];
     }
 };

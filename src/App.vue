@@ -4,18 +4,14 @@
     <div style="padding-bottom: 20px;">
       请注意：如果文件为csv格式，请先使用office Excel或WPS等第三方工具先另存为xlsx格式再进行导入
     </div>
-    <el-divider></el-divider>
-    <pppoe-excel></pppoe-excel>
-    <el-divider></el-divider>
-    第二业务
-    <el-divider></el-divider>
+    <import-and-export-excel></import-and-export-excel>
   </div>
 </template>
 
 <script>
-import pppoeExcel from './components/pppoeExcel/pppoeExcel.vue'
+import importAndExportExcel from './components/importAndExportExcel/importAndExportExcel.vue'
 export default {
-  components: { pppoeExcel },
+  components: { importAndExportExcel },
   name: 'App'
 }
 </script>
