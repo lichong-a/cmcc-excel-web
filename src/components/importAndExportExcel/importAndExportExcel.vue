@@ -9,7 +9,7 @@
                    action="/api/read/pppoe/4"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove4"
-                   :disabled="upLoadStatus.four"
+                   :on-exceed="onExceed"
                    accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
@@ -23,7 +23,7 @@
                    action="/api/read/pppoe/5"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove5"
-                   :disabled="upLoadStatus.five"
+                   :on-exceed="onExceed"
                    accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
@@ -40,7 +40,7 @@
                    action="/api/read/pppoe/1"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove1"
-                   :disabled="upLoadStatus.one"
+                   :on-exceed="onExceed"
                    accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
@@ -54,7 +54,7 @@
                    action="/api/read/pppoe/2"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove2"
-                   :disabled="upLoadStatus.two"
+                   :on-exceed="onExceed"
                    accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
@@ -71,7 +71,7 @@
                    action="/api/read/pppoe/3"
                    :on-success="pppoeUploadSuccessd"
                    :on-remove="pppoeUploadRemove3"
-                   :disabled="upLoadStatus.three"
+                   :on-exceed="onExceed"
                    accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
@@ -95,7 +95,7 @@
                    action="/api/read/fgqPortRepeat/1"
                    :on-success="fgqPortRepeatUploadSuccessd"
                    :on-remove="fgqPortRepeatUploadRemove"
-                   :disabled="upLoadStatus.six"
+                   :on-exceed="onExceed"
                    accept=".xls, .xlsx"
                    :limit="1">
           <el-button size="small"
@@ -269,6 +269,9 @@ export default {
       if (fileList.length === 0) {
         this.upLoadStatus.six = false
       }
+    },
+    onExceed() {
+      this.$message.error('文件数量超限！请先删除后再重新上传')
     }
   },
 }
