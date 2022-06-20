@@ -113,7 +113,7 @@
   npm run dev
   ```
 - **访问项目**
-  - 默认为[http://localhost:8080/](http://localhost:8085/)
+  - 默认为[http://localhost:8085/](http://localhost:8085/)
 
 ### <mark>生产环境打包部署</mark>
 
