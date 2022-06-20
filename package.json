@@ -1,11 +1,19 @@
 {
   "name": "cmcc-excel-web",
-  "version": "0.1.0",
+  "description": "中移铁通Excel数据处理并整合导出研发项目前端",
+  "version": "1.0.0",
   "private": true,
+  "author": "lichong",
+  "homepage": "https://lichong.work",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lichong-a/cmcc-excel-web.git"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -42,5 +50,8 @@
     "> 1%",
     "last 2 versions",
     "not dead"
+  ],
+  "contributors": [
+    "lichong <mail@lichong.host> (https://lichong.work)"
   ]
 }
